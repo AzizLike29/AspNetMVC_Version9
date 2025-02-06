@@ -1,0 +1,64 @@
+﻿@model IEnumerable<WebTestUsersCompany.ViewModels.RoomBookingViewModel>
+@{
+    ViewData["Title"] = "Daftar Pemesanan Ruangan";
+    Layout = "~/Views/Shared/_AccountLayout.cshtml";
+}
+<nav class="navbar">
+    <div class="container">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="btn btn-outline-danger" asp-controller="Account" asp-action="Logout">Logout</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div class="container d-flex justify-content-center p-5">
+    <div class="row w-100">
+        <div class="col-md-10 mx-auto">
+            <div class="row mb-3">
+                <div class="col-12 d-flex justify-content-between align-items-center">
+                    <h2 class="mb-0">Daftar Pemesanan Ruangan</h2>
+                    <a href="@Url.Action("Create", "Booking")" class="btn btn-success">Tambah Pemesanan</a>
+                </div>
+            </div>
+            @* Menampilkan notifikasi *@
+            @await Html.PartialAsync("~/Views/Shared/_Messages.cshtml")
+            <div class="card">
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-striped table-hover">
+                            <thead class="table-light">
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Room ID</th>
+                                    <th>Tanggal Pemesanan</th>
+                                    <th>Dipesan Oleh</th>
+                                    <th class="text-center">Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var booking in Model)
+                                {
+                                    <tr>
+                                        <td>@booking.Id</td>
+                                        <td>@booking.RoomId</td>
+                                        <td>@booking.BookingDate.ToString("dd MMM yyyy")</td>
+                                        <td>@booking.BookedBy</td>
+                                        <td class="text-center">
+                                            <div class="d-flex justify-content-center gap-2">
+                                                <a href="@Url.Action("Update", "Booking", new { id = booking.Id })" class="btn btn-sm btn-primary">Edit</a>
+                                                <form asp-action="Delete" asp-route-id="@booking.Id" method="post" class="m-0">
+                                                    <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Data Pemesanan ingin dihapus?');">Hapus</button>
+                                                </form>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

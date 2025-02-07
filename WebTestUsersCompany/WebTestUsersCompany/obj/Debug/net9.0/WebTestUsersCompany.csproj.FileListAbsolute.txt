@@ -445,3 +445,4 @@ D:\Test 2\WebTestUsersCompany\WebTestUsersCompany\obj\Debug\net9.0\refint\WebTes
 D:\Test 2\WebTestUsersCompany\WebTestUsersCompany\obj\Debug\net9.0\WebTestUsersCompany.pdb
 D:\Test 2\WebTestUsersCompany\WebTestUsersCompany\obj\Debug\net9.0\WebTestUsersCompany.genruntimeconfig.cache
 D:\Test 2\WebTestUsersCompany\WebTestUsersCompany\obj\Debug\net9.0\ref\WebTestUsersCompany.dll
+D:\Test 2\WebTestUsersCompany\WebTestUsersCompany\obj\Debug\net9.0\WebTestUsersCompany.sourcelink.json
